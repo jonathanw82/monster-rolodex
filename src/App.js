@@ -7,7 +7,8 @@ class App extends Component {
     super();
 
     this.state = {
-      monsters: []
+      monsters: [],
+      searchField: '',
     };
   }
 
@@ -18,37 +19,20 @@ class App extends Component {
   }
 
   render() {
+    const { monsters, searchField } = this.state; 
+    const filteredMonsters = monsters.filter(monster => monster.name.toLowerCase().includes(searchField.toLowerCase()));
+
     return (
       <div className="App">
-        <CardList name="Jon">
-      {
-        this.state.monsters.map(monster => <h1 key={ monster.id }> { monster.name } </h1>)
-      }
-        </CardList>
+        <input 
+        type="search" 
+        placeholder="search monsters" 
+        onChange={e => this.setState({ searchField: e.target.value })} // onstate change will take the value from the e (default) target (the input field) the value back.
+        />
+        <CardList monsters={filteredMonsters}/>
       </div>
     );
   }
 }
 
-
 export default App;
-
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>My Name is Jon</p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }
