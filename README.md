@@ -1,4 +1,4 @@
-Complete React Developer in 2020 Project Monster Rolodex
+Complete React Developer in 2020 Project Monster Rolodex.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
