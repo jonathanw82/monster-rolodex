@@ -1,15 +1,16 @@
-import Card from '../card/card.component';
-import './card-list.styles.css'
+import Card from "../card/card.component";
+import "./card-list.styles.css";
 
-const CardList = ({monsters}) =>{
-
-    return(
-        <div className='card-list-container'>
-            {monsters.map(({name, email, id}, idx) => {
-            return <Card key={`${name}-${idx}`} name={name} email={email} id={id}/>;
-            })}
-        </div>
-    )
-}
+const CardList = ({ monsters }) => {
+  return (
+    <div className="card-list-container">
+      {monsters.map(({ name, email, id }, idx) => {
+        return (
+          <Card key={`${name}-${idx}`} name={name} email={email} id={id} />
+        );
+      })}
+    </div>
+  );
+};
 
 export default CardList;
